@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zad2</title>
+</head>
+<body>
+    <h1>Generator danych osobowych</h1>
+    <form onsubmit="generateData(); return false;">
+        <label for="recordCount">Liczba rekordów:</label>
+        <input type="number" id="recordCount" name="recordCount" min="1" max="20" required>
+        <input type="submit" value="Generuj">
+    </form>
+    <pre id="output"></pre>
+
+    <script>
+        // imiona
+        const names = ["Johan", "Anna", "Maciej", "Katarzyna", "Mariusz", "Piotr", "Krystyna", "Jakub", "Krzysztof", "Monika"];
+
+        // nazwiska
+        const surnames = ["Nowak", "Kowalski", "Wojak", "Kubica", "Myśliwiecki", "Kamiński", "Lewandowski", "Tarczyński", "Sokołowski", "Płomiański"];
+
+
+        //  Funkcja do daneych osobowych
+        function generateData() {
+            const recordCount = document.getElementById("recordCount").value;
+            const output = document.getElementById("output");
+
+            // Tablica do danych osobowych
+            const data = [];
+
+            //Tworzenie danych osobowych
+            for (let i = 0; i < recordCount; i++) {
+                const name = names[Math.floor(Math.random() * names.length)];
+                const surname = surnames[Math.floor(Math.random() * surnames.length)];
+                const age = Math.floor(Math.random() * (80 - 18 + 1)) + 18;
+                const phone = Math.floor(Math.random() * (8000000 - 5000000 + 1)) + 5000000;
+
+                // Tworzenie  JSON z danymi osobowymi
+                const person = {
+                    name: name,
+                    surname: surname,
+                    age: age,
+                    phone: phone
+                };
+
+                // Dodawanie obiektu do tablicy 
+                data.push(person);
+            }
+
+            // Wypisanie danych osobowych w formacie JSON
+            output.textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</body>
+</html>
