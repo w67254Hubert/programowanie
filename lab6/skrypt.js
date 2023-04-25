@@ -212,4 +212,4 @@ while(i < tab2.length){
     }
     i++;
 }
-console.log("2 wystąpiła "+ x +" razy w tablicy")
+console.log("2 wystąpiła "+ x +" krptnie w tablicy")
