@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz</title>
+    <style>
+      form {
+font-family: Arial, sans-serif;
+background-color: #91b3e2;
+padding: 20px;
+border-radius: 5px;
+max-width: 500px;
+margin: auto;
+}
+
+label {
+display: inline-block;
+width: 100px;
+font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"] {
+padding: 5px;
+border-radius: 5px;
+border: none;
+margin-bottom: 10px;
+width: 100%;
+}
+
+input[type="radio"] {
+margin-right: 10px;
+}
+
+input[type="submit"] {
+background-color: #4CAF50;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+
+input[type="submit"]:hover {
+background-color: #3e8e41;
+}
+
+  </style>
+</head>
+<body>
+    <h1>Formularz rejestracyjny</h1>
+    <form>
+      <label for="name">Imię:</label>
+      <input type="text" id="name" name="name" required minlength="2"><br><br>
+
+      <label for="surname">Nazwisko:</label>
+      <input type="text" id="surname" name="surname" required minlength="2"><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="password">Hasło:</label>
+      <input type="password" id="password" name="password" required minlength="8"><br><br>
+
+      <label for="gender">Płeć:</label>
+      <select id="gender" name="gender" required>
+        <option value=""></option>
+        <option value="male">Mężczyzna</option>
+        <option value="female">Kobieta</option>
+      </select><br><br>
+
+      <label for="phone">Telefon:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{9}"><br><br>
+
+      <label for="birthdate">Data urodzenia:</label>
+      <input type="date" id="birthdate" name="birthdate" required><br><br>
+
+      <label for="country">Kraj:</label>
+      <input type="text" id="country" name="country" required><br><br>
+
+      <button type="submit">Zapisz</button>
+    </form>
+    
+</body>
+</html>
