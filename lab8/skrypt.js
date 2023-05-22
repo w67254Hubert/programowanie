@@ -47,6 +47,102 @@ form.addEventListener('submit', function (event) {
   const birthdateInput = document.getElementById('birthdate');
   const countryInput = document.getElementById('country');
 
+//lab 8 nie jest ładne ale działa
+
+
+function requiredValidation(field) {
+  //Zad 3 - span i errorField
+  const errorField = document.querySelector(`[name='${field.name}'] + span.error`);
+  //
+  if (!field.value || field.value === '') {
+      //Zad 2
+      //field.setCustomValidity('To pole jest wymagane');
+      errorField.innerHTML = 'To pole jest wymagane';
+      return true;
+  }
+  else {
+      //Zad 2
+      //field.setCustomValidity('');
+      errorField.innerHTML = '';
+      return false;
+  }
+}
+
+const countyField = document.querySelector("[name='country']");
+// console.log("kraj"+countyField)
+let provinceField = document.querySelector("[name='province']");
+const province = document.querySelector('.province');
+const provinceSelect = document.querySelector('.province.select');
+countyField.addEventListener('change', () => {
+    const result = requiredValidation(countyField);
+
+    if (countyField.value === "Polska") {
+        province.hidden = true;
+        provinceSelect.hidden = false;
+        provinceField = document.querySelector(".province.select [name='province']");
+
+        provinceField.removeEventListener('input', provinceField);
+        provinceField.addEventListener('change', () => {
+            validProvince();
+        });
+    }
+    else {
+        province.hidden = false;
+        provinceSelect.hidden = true;
+
+        provinceField = document.querySelector("[name='province']");
+
+        provinceField.removeEventListener('change', provinceField);
+        provinceField.addEventListener('input', () => {
+            validProvince();
+        });
+    }
+
+    provinceField.disabled = result;
+});
+
+const addressField = document.querySelector("[name='address']");
+const contactAddressField = document.querySelector("[name='contactAddress']");
+
+function validProvince() {
+    const result = requiredValidation(provinceField);
+    addressField.disabled = result;
+    contactAddressField.disabled = result;
+}
+
+
+addressField.addEventListener('input', () => {
+    requiredValidation(addressField);
+    hasValidLength(addressField, 3,100);
+});
+contactAddressField.addEventListener('input', () => {
+    requiredValidation(contactAddressField);
+    hasValidLength(contactAddressField, 3,100);
+});
+
+/// Adres korespondencyjny
+const checkboxField = document.querySelector("[name='hasSameContactAddress']");
+const contactAddress = document.querySelector(".contactAddress");
+
+checkboxField.addEventListener('change', () => {contactAddress.hidden = checkboxField.checked;
+});
+
+//ograniczenie pola texst do cyfr
+
+  phoneInput.addEventListener("input", function(event) {
+    var inputValue = event.target.value;
+    var numericValue = inputValue.replace(/\D/g, ""); // Usuwa znaki nie będące cyframi
+
+    phoneInput.value = numericValue;
+  });
+//lab 8 end
+
+
+
+
+
+
+
   if (!isNotEmpty(nameInput.value)) {
     document.getElementById("name-error").innerHTML = "Pole Imię jest wymagane ";
     return;
@@ -136,18 +232,9 @@ form.addEventListener('submit', function (event) {
     document.getElementById("birthdate-error").innerHTML = null;
   }
 
-  if (!isNotEmpty(countryInput.value)) {
+  if (!requiredValidation(countryInput.value)) {
     document.getElementById("country-error").innerHTML = "Pole Kraj jest wymagane ";
     return false;
   }
 })
- 
 
-const checkBoxField=document.querySelector("[name='hasSameadress]'")
-const contactaddres=document.querySelector(".contactadress")
-
-checkBoxField.addEventListener('change', () =>{
-  
-  contactaddres.hiden=checkBoxField.checked;
-
-});
