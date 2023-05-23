@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rejestracja</title>
+      <style>
+    h1 {
+        text-align: center;
+        color: rgb(62, 138, 226);
+
+    }
+        form {
+  font-family: Arial, sans-serif;
+  background-color: #91b3e2;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: auto;
+  }
+  
+  label {
+  display: inline-block;
+  font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="valPassword"],
+  input[type="tel"],
+  input[type="date"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  width: 100%;
+  }
+  
+  input[type="radio"] {
+  margin-right: 10px;
+  }
+  
+  input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+  background-color: #3e8e41;
+  }
+
+  img[type="img"]{
+    width: 160px;
+    opacity:30%;
+    border-radius:10px;
+    
+
+  }
+
+    </style>
+</head>
+<body>
+<a href="podStrona.html">licznie netto brutto</a>
+
+
+      <h1>Formularz rejestracyjny</h1>
+    <form>
+        <div>
+        <label for="name">Imię:</label>
+        <input type="text" id="name" name="name"><br>
+        <span id="name-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="surname">Nazwisko:</label>
+        <input type="text" id="surname" name="surname"><br>
+        <span id="surname-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <span id="email-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password"><br>
+        <span id="password-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+            <label for="valPassword">Powtórz hasło:</label>
+            <input type="password" id="valPassword" name="valPassword"><br>
+            <span id="valPassword-error"></span>
+            <br><br>
+            </div>
+
+            <div>
+                <label for="gender">Płeć:</label>
+                <select id="gender" name="gender"><br>
+                <option value=""></option>
+                <option value="male">Mężczyzna</option>
+                <option value="female">Kobieta</option>
+                </select>
+                <span id="gender-error"></span>
+                <br><br>
+                </div>
+                <div>
+                    <label for="phone">Telefon:</label>
+                    <input type="tel" id="phone" name="phone"><br>
+                    <span id="phone-error"></span>
+                    <br><br>
+                    </div>
+                </div>
+                <div class="control">
+                    <label>Kraj: </label>
+                    <select name="country">
+                        <option></option>
+                        <option value="Polska">Polska</option>
+                        <option value="Ukraina">Ukraina</option>
+                        <option value="Litwa">Litwa</option>
+                        <option value="Niemcy">Niemcy</option>
+                    </select>
+                    <span class="error"></span>
+                </div>
+
+            <div class="control actions">
+        <input type="submit" value="Zapisz">
+    </div>
+</form>
+
+
+
+    <script src="skrypt.js"></script>
+    <center>
+    <img type="img" src="git.png" alt="logo githuba"></center>
+
+
+
+</body>
+</html>
